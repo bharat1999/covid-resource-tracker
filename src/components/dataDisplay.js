@@ -1,6 +1,6 @@
 import "./dataDisplay.css"
 import React from 'react';
-
+import RoomOutlinedIcon from '@material-ui/icons/RoomOutlined';
 
 
 
@@ -14,6 +14,7 @@ function dataDisplay(props) {
                     <p>{props.type}</p>
                     <p>{props.add}</p>
                     <p>{props.no}</p> 
+                    <RoomOutlinedIcon/>
                     <a href={props.link}>Map</a>
                 </div>
                 <div className="col col-3">
