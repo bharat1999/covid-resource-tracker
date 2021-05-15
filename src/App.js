@@ -12,13 +12,25 @@ function App() {
   const fetchData =  async ()=> {await axios.get("https://api.npoint.io/4d61424b0910b4a2b692")
     .then(function(res){
       setHdata(res.data.hospitals)
-      console.log(hdata[0].phoneNumber)
     })  
     .catch(function(e){
       console.log(e)
     })
   }
-fetchData()
+  fetchData()
+  const fetchO2data = async ()=> {await axios.get("https://coronabeds.jantasamvad.org/covid-info.js")
+    .then(function(r){
+      r=String(r)
+      console.log(r)
+      var Data = r.data.replace("var gnctd_covid_covid_data = ","")
+      Data = JSON.parse(Data)
+      console.log(Data)
+    })
+    .catch(function(e){
+      console.log(e)
+    })
+  }
+  fetchO2data()
 })
 return (
     <div className="App">
@@ -27,9 +39,8 @@ return (
       </div>
       {hdata.length!==0?
         hdata.map((h)=>{
-          return <DataDisplay name={h.name} add={h.location.formattedAddress} no={h.phoneNumber[0]}
-            link={h.location.link} total={h.general.total} vacant={h.general.available} occupied={h.general.occupied}
-          />
+          return <DataDisplay name={h.name} type={h.type} add={h.location.formattedAddress} no={h.phoneNumber[0]}
+            link={h.location.link} total={h.general.total} vacant={h.general.available} occupied={h.general.occupied}/>
         })  
         :<div>Loader</div>}
     </div>
