@@ -1,0 +1,20 @@
+
+.data_box{
+    width: 65%;
+    height:12rem;
+    padding: 1rem;
+    margin: 1rem auto ;
+    background-color:#194350;
+    color: white;
+    box-shadow:5px 5px #8fd6e1;
+}
+
+.vacant
+{
+   color: rgb(3, 248, 3); 
+}
+
+.occupied
+{
+    color: red;
+}
