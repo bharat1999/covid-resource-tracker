@@ -35,7 +35,7 @@ function App() {
 return (
     <div className="App">
       <div>
-        <h1>Isolation Beds</h1>
+        <h1 className="heading">Isolation Beds</h1>
       </div>
       {hdata.length!==0?
         hdata.map((h)=>{

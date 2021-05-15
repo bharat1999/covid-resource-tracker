@@ -10,30 +10,34 @@ function dataDisplay(props) {
     return(
         <div className="container data_box">
             <div className="row">
-                <h5>{props.name}</h5>
-                <p>{props.type}</p>
-            </div>
-            <div className="row">
-                <div className="col col-4">
-                    <p>Total</p>
-                </div>
-                <div className="col col-4">
-                    <p className="vacant">Vacant</p>
-                </div>
-                <div className="col col-4">
-                    <p className="occupied">Occupied</p>
-                </div> 
-            </div>    
-            <div className="row">
-                <div className="col col-4">
-                    <p>{props.total}</p>
-                </div>
-                <div className="col col-4">
-                    <p className="vacant">{props.vacant}</p>
-                </div>
-                <div className="col col-4">
-                    <p className="occupied">{props.occupied}</p>
-                </div> 
+                <div className="col col-6 text-start">
+                    <p className="hName">{props.name}</p>
+                    <p>{props.type}</p>
+                </div>    
+                <div className="col col-6">
+                    <div className="row">
+                        <div className="col col-4">
+                            <p>Total</p>
+                        </div>
+                        <div className="col col-4">
+                            <p className="vacant">Vacant</p>
+                        </div>
+                        <div className="col col-4">
+                            <p className="occupied">Occupied</p>
+                        </div> 
+                    </div>
+                    <div className="row">
+                        <div className="col col-4">
+                            <p>{props.total}</p>
+                        </div>
+                        <div className="col col-4">
+                            <p className="vacant">{props.vacant}</p>
+                        </div>
+                        <div className="col col-4">
+                            <p className="occupied">{props.occupied}</p>
+                        </div>
+                    </div>
+                </div>    
             </div>
             <Popup trigger={<button className="btn btn-primary">More Info</button>} position="right center">
                 <div>
