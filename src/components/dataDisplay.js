@@ -9,14 +9,14 @@ function dataDisplay(props) {
     return(
         <div className="container data_box">
             <div className="row">
-                <div className="col col-9 text-start">
+                <div className="col col-8 text-start">
                     <p>{props.name}</p>
                     <p>{props.type}</p>
                     <p>{props.add}</p>
                     <p>{props.no}</p> 
                     <a href={props.link}>Map</a>
                 </div>
-                <div className="col col-3">
+                <div className="col col-4">
                     <div className="row">
                         <div className="col col-4">
                             <p>Total</p>
