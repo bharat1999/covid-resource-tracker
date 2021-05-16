@@ -12,9 +12,7 @@ background-size: cover;
   pointer-events: none;
 }
 
-Navbar{
-  background-color: black;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

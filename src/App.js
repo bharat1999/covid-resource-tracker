@@ -3,10 +3,10 @@ import axios from 'axios';
 import react from 'react'
 import {useEffect,useState} from 'react'
 import DataDisplay from './components/dataDisplay'
-import HomePage from './components/homePage'
 import {Navbar,Nav} from 'react-bootstrap'
 import OxygenData from './components/oygenDisplay'
 import logo from './assests/img/logo.png'
+import HomePage from './components/homePage'
 import {
   BrowserRouter as Router,
   Switch,
@@ -43,10 +43,10 @@ return (
     <div className="App">
     <Router>
       <div>
-      <Navbar className="nav">
+      <Navbar>
       <Navbar.Brand href="/"><img src={logo} width="60" height="60" className="d-inline-block align-top"  alt="Covid Resource Tracker  logo"/></Navbar.Brand>
       <Nav className="mr-auto">
-        <Link to="/"><Nav.Link>Home</Nav.Link></Link>
+        <Link to="/"><Nav.Link href="/">Home</Nav.Link></Link>
         <Link to="/isolation"><Nav.Link href="/isolation">Isolation Beds</Nav.Link></Link>
         <Link to="/icu"><Nav.Link href="/icu">ICU Beds</Nav.Link></Link>
         <Link to="/o2"><Nav.Link href="/o2">Oxygen Beds</Nav.Link></Link>
@@ -88,9 +88,7 @@ return (
             :<div>Loader</div>}
           </Route>
           <Route path="/">
-            <div>
-              <h1>THis is homepage</h1>
-            </div>
+            <HomePage/>
           </Route>
         </Switch>
       </div>
