@@ -8,7 +8,7 @@ import 'reactjs-popup/dist/index.css';
 
 function dataDisplay(props) {
     return(
-        <div className="container data_box">
+        <div className={`container data_box ${String(props.class)}`}>
             <div className="row">
                 <div className="col col-6 text-start">
                     <p className="hName">{props.data.name}</p>

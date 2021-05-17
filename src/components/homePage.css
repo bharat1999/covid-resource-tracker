@@ -6,12 +6,12 @@ body {
 }
 
 a {
-  color: #2dc997;
+  color: #23ffff;
   text-decoration: none;
 }
 
 a:hover, a:active, a:focus {
-  color: #2dca98;
+  color: #23ffff;
   outline: none;
   text-decoration: none;
 }
@@ -54,6 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .scrolled-offset {
   margin-top: 70px;
+}
+
+.head{
+  color: white;
 }
 
 
@@ -141,8 +145,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #hero .btn-get-started:hover {
-  background: #2dc997;
-  border: 2px solid #2dc997;
+  background: #23ffff;
+  border: 2px solid #23ffff;
 }
 
 /*--------------------------------------------------------------
@@ -240,7 +244,7 @@ section {
   text-align: center;
   width: 72px;
   height: 72px;
-  background: #2dc997;
+  background: #23ffff;
 }
 
 #facilities .icon a {
@@ -255,15 +259,15 @@ section {
 
 #facilities .box:hover .icon {
   background: #fff;
-  border: 2px solid #2dc997;
+  border: 2px solid #23ffff;
 }
 
 #facilities .box:hover .icon i {
-  color: #2dc997;
+  color: #23ffff;
 }
 
 #facilities .box:hover .icon a {
-  color: #2dc997;
+  color: #23ffff;
 }
 
 #facilities .title {
