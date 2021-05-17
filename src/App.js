@@ -1,6 +1,7 @@
 import './App.css';
 import axios from 'axios';
 //import react from 'react'
+import dotenv from 'dotenv'
 import {useEffect,useState} from 'react'
 import DataDisplay from './components/dataDisplay'
 import {Navbar,Nav,NavLink} from 'react-bootstrap'
@@ -14,6 +15,8 @@ import {
   Link
 } from "react-router-dom";
 
+
+dotenv.config()
 
 function App() {
   var isototal=0,o2total=0,icutotal=0
@@ -30,9 +33,10 @@ function App() {
       })
     }
     fetchBedData()
+    console.log(process.env.API_KEY)
     const fetchCaseData = async()=> {await axios.get("https://corona-virus-world-and-india-data.p.rapidapi.com/api_india", {
       headers: {
-        "x-rapidapi-key":"b57e88c3f1mshd7550c30f51c786p15c223jsnf6fc27943a95",
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY,
 	      "x-rapidapi-host":"corona-virus-world-and-india-data.p.rapidapi.com"
       }
     })
