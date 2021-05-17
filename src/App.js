@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import {useEffect,useState} from 'react'
 import DataDisplay from './components/dataDisplay'
 import {Navbar,Nav,NavLink} from 'react-bootstrap'
-//import OxygenData from './components/oygenDisplay'
+import OxygenDisplay from './components/oygenDisplay'
 import logo from './assests/img/logo.png'
 import HomePage from './components/homePage'
 import {
@@ -22,7 +22,7 @@ function App() {
   var isototal=0,o2total=0,icutotal=0,color=""
   const [hdata,setHdata] = useState([])
   const [cData,setCdata] =useState([])
-  //const [odata,setOdata] = useState([])
+  const [oData,setOdata] = useState([])
   useEffect(()=>{
     const fetchBedData =  async ()=> {await axios.get("https://api.npoint.io/4d61424b0910b4a2b692")
       .then(function(res){
@@ -33,14 +33,12 @@ function App() {
       })
     }
     fetchBedData()
-    console.log(process.env.REACT_APP_API_KEY)
     const fetchCaseData = async()=> {await axios.get("https://corona-virus-world-and-india-data.p.rapidapi.com/api_india", {
       headers: {
         "x-rapidapi-key":process.env.REACT_APP_API_KEY,
 	      "x-rapidapi-host":"corona-virus-world-and-india-data.p.rapidapi.com"
       }
     })
-
     .then(function(res){
       setCdata(res.data.total_values)
     })
@@ -51,24 +49,17 @@ function App() {
   fetchCaseData()
 },[])
 
-// useEffect(()=>{
-//   const fetchO2data = async ()=> {await axios.get("https://coronabeds.jantasamvad.org/covid-info.js",{headers:{
-//     "Access-Control-Allow-Origin":true,
-//     "Access-Control-Allow-Methods": "GET",
-//     "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-//   }
-// }
-// )
-//       .then(function(r){
-//         setOdata(JSON.parse(r.data.substring(22).slice(0,-1)))
-//         console.log(odata)
-//       })
-//       .catch(function(e){
-//         console.log(e)
-//       })
-//     }
-//     fetchO2data()
-// },[])
+useEffect(()=>{
+  const fetchO2data = async ()=> {await axios.get("https://covid-resource-tracker-server.herokuapp.com/api")
+      .then(function(r){
+        setOdata(r.data.oxygen_left_for)
+      })
+      .catch(function(e){
+        console.log(e)
+      })
+    }
+    fetchO2data()
+},[])
 
 return (
     <div className="App">
@@ -89,7 +80,14 @@ return (
               <h1>Isolation Beds</h1>
             </div>
             {hdata.length!==0?
-              hdata.map((h)=>{
+              hdata.filter((a)=>{
+                if(a.general.available!==undefined) 
+                  return a
+              })
+              .sort(function(a,b){
+                return parseInt(b.general.available,10)-parseInt(a.general.available,10)
+              })
+              .map((h)=>{
                 if(!isNaN(parseInt(h.general.available,10))){
                   isototal+=parseInt(h.general.available,10)
                 }
@@ -101,7 +99,7 @@ return (
                 {
                   color="red"
                 }
-              return <DataDisplay key={h.name} class={color} data={h} total={h.general.occupied} occupied={h.general.occupied} vacant={h.general.available}/>
+              return <DataDisplay key={h.name} class={color} data={h} total={h.general.total} occupied={h.general.occupied} vacant={h.general.available}/>
               })  
             :<div>Loader</div>}
           </Route>
@@ -110,7 +108,12 @@ return (
               <h1>ICU Beds</h1>
             </div>
             {hdata.length!==0?
-              hdata.map((h)=>{
+              hdata.filter((a)=>{
+                if(a.icu.available!==undefined) 
+                  return a
+              }).sort(function(a,b){
+                return b.icu.available-a.icu.available
+              }).map((h)=>{
                 if(!isNaN(parseInt(h.icu.available,10))){
                   icutotal+=parseInt(h.icu.available,10)
                 }
@@ -122,7 +125,7 @@ return (
                 {
                   color="red"
                 }
-              return <DataDisplay key={h.name} data={h} total={h.icu.occupied} occupied={h.icu.occupied} vacant={h.icu.available}/>
+              return <DataDisplay key={h.name} data={h} class={color} total={h.icu.total} occupied={h.icu.occupied} vacant={h.icu.available}/>
               })  
             :<div>Loader</div>}
           </Route>
@@ -131,7 +134,14 @@ return (
               <h1>Oxygen Beds</h1>
             </div>
             {hdata.length!==0?
-              hdata.map((h)=>{
+              hdata.filter((a)=>{
+                if(a.o2.available!==undefined) 
+                  return a
+              })
+              .sort(function(a,b){
+                return parseInt(b.o2.available,10)-parseInt(a.o2.available,10)
+              })
+              .map((h)=>{
                 if(!isNaN(parseInt(h.o2.available,10))){
                   o2total+=parseInt(h.o2.available,10)
                 }
@@ -143,7 +153,7 @@ return (
                 {
                   color="red"
                 }
-              return <DataDisplay key={h.name} data={h} total={h.o2.occupied} occupied={h.o2.occupied} vacant={h.o2.available}/>
+              return <OxygenDisplay key={h.name} class={color} data={h} total={h.o2.total} occupied={h.o2.occupied} vacant={h.o2.available} left={oData}/>
               })  
             :<div>Loader</div>}
           </Route>
