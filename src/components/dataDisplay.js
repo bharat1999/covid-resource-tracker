@@ -39,7 +39,7 @@ function dataDisplay(props) {
                     </div>
                 </div>    
             </div>
-            <Popup trigger={<button className="btn btn-primary">More Info</button>} position="right center">
+            <Popup trigger={<button className="btn btn-primary popup-btn">More Info</button>} position="right center">
                 <div>
                     <p>Add: {props.data.location.formattedAddress}</p>
                     <p>Phone No: {props.data.phoneNumber[0]}</p> 

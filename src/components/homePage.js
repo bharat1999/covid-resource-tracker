@@ -1,68 +1,87 @@
 import './homePage.css'
 
-function homePage(){
+function homePage(props){
     return(
     <div>
         <section id ="hero">
-            <div class="hero-container">
+            <div className="hero-container">
                 <h1>Welcome to Covid Bed Tracker</h1>
             </div>
         </section>
-        <section id="facts">
-            <div class="container">
-                <div class="section-header">
-                    <h3 class="section-tille">Covid-19 cases</h3>
+        <section id="cases">
+            <div className="container">
+                <div className="section-header">
+                    <h3 className="section-tille">Covid-19 Cases</h3>
                 </div>
-                <div class="row counters">
-
-                    <div class="col-lg-3 col-6 text-center">
-                      
-                      <p>Total Cases</p>
+                <div className="row counters">
+                    <div className="col-3 text-center confirmed">
+                      <p>Confirmed Cases</p>
                     </div>
-          
-                    <div class="col-lg-3 col-6 text-center">
-                      
-                      <p>New Cases</p>
+                    <div className="col-3 text-center recovered">
+                      <p>Recovered</p>
                     </div>
-          
-                    <div class="col-lg-3 col-6 text-center">
-                     
+                    <div className="col-3 text-center active">
                       <p>Active Cases</p>
                     </div>
-          
-                    <div class="col-lg-3 col-6 text-center">
-                     
+                    <div className="col-3 text-center death">
                        <p>Death Count</p>
                     </div>
-          
-                  </div>
-          
+                </div>
+                <div className="row counters">
+                    <div className="col-3 text-center confirmed">
+                      <p>{props.data.confirmed}</p>
+                    </div>
+                    <div className="col-3 text-center recovered">
+                      <p>{props.data.recovered}</p>
+                    </div>
+                    <div className="col-3 text-center active">
+                      <p>{props.data.active}</p>
+                    </div>
+                    <div className="col-3 text-center death">
+                       <p>{props.data.deaths}</p>
+                    </div>
+                </div>
+                <div className="row counters">
+                    <div className="col-3 text-center confirmed change">
+                      <p>+{props.data.deltaconfirmed}</p>
+                    </div>
+                    <div className="col-3 text-center recovered change">
+                      <p>+{props.data.deltarecovered}</p>
+                    </div>
+                    <div className="col-3 text-center ">
+                      <p></p>
+                    </div>
+                    <div className="col-3 text-center death change">
+                       <p>+{props.data.deltadeaths}</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section id="facilities">
-            <div class="container">
-                <div class="section-header">
-                    <h3 class="section-title">Facilities</h3>
+            <div className="container">
+                <div className="section-header">
+                    <h3 className="section-title">Bed Availability</h3>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="box">
-                            <div class="icon"><a href="/icu"><i class="fas fa-procedures"></i></a></div>
-                            <h4 class="title"><a href="/icu">ICU BEDS</a></h4>  
+                <div className="row">
+                    <div className="col-lg-4 col-md-6">
+                        <div className="box">
+                            <div className="icon"><a href="/icu"><i className="fas fa-procedures"></i></a></div>
+                            <h4 className="title"><a href="/icu">ICU BEDS</a></h4>  
+                            <p>{props.icutotal}</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="box">
-                          <div class="icon">
-                            <a href="/isolation"><i class="fas fa-bed"></i></a>
-                          </div>
-                          <h4 class="title"><a href="/isolation">ISOLATION BEDS</a></h4>
+                    <div className="col-lg-4 col-md-6">
+                        <div className="box">
+                          <div className="icon"><a href="/isolation"><i className="fas fa-bed"></i></a></div>
+                          <h4 className="title"><a href="/isolation">ISOLATION BEDS</a></h4>
+                          <p>{props.isototal}</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6" data-aos="zoom-in">
-                        <div class="box">
-                          <div class="icon"><a href="/o2"><i class="fas fa-bed"></i></a></div>
-                          <h4 class="title"><a href="/o2">OXYGEN BEDS</a></h4>
+                    <div className="col-lg-4 col-md-6" data-aos="zoom-in">
+                        <div className="box">
+                          <div className="icon"><a href="/o2"><i className="fas fa-bed"></i></a></div>
+                          <h4 className="title"><a href="/o2">OXYGEN BEDS</a></h4>
+                          <p>{props.o2total}</p>
                         </div>
                       </div>
                 </div>
