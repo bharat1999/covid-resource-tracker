@@ -8,13 +8,13 @@ import {Navbar,Nav,NavLink} from 'react-bootstrap'
 import OxygenDisplay from './components/oygenDisplay'
 import logo from './assests/img/logo.png'
 import HomePage from './components/homePage'
+import About from './components/about'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-
 
 dotenv.config()
 
@@ -72,6 +72,7 @@ return (
             <NavLink  as={Link} to="/isolation">Isolation Beds</NavLink>
             <NavLink  as={Link} to="/icu">ICU Beds</NavLink>
             <NavLink  as={Link} to="/o2">Oxygen Beds</NavLink>
+            <NavLink  as={Link} to="/about">About Us</NavLink>
           </Nav>
         </Navbar>
         <Switch>
@@ -156,6 +157,9 @@ return (
               return <OxygenDisplay key={h.name} class={color} data={h} total={h.o2.total} occupied={h.o2.occupied} vacant={h.o2.available} left={oData}/>
               })  
             :<div>Loader</div>}
+          </Route>
+          <Route path="/about">
+            <About/>
           </Route>
           <Route path="/">
             <HomePage data={cData} isototal={isototal} icutotal={icutotal} o2total={o2total}/>
