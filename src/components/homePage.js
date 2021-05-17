@@ -6,12 +6,13 @@ function homePage(props){
         <section id ="hero">
             <div className="hero-container">
                 <h1>Welcome to Covid Bed Tracker</h1>
+                <h3 className="head">Let's Fight Together</h3>
             </div>
         </section>
         <section id="cases">
             <div className="container">
                 <div className="section-header">
-                    <h3 className="section-tille">Covid-19 Cases</h3>
+                    <h3 className="section-title">Covid-19 Cases</h3>
                 </div>
                 <div className="row counters">
                     <div className="col-3 text-center confirmed">
@@ -67,21 +68,21 @@ function homePage(props){
                         <div className="box">
                             <div className="icon"><a href="/icu"><i className="fas fa-procedures"></i></a></div>
                             <h4 className="title"><a href="/icu">ICU BEDS</a></h4>  
-                            <p>{props.icutotal}</p>
+                            <p>Available Beds = {props.icutotal}</p>
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-6">
                         <div className="box">
                           <div className="icon"><a href="/isolation"><i className="fas fa-bed"></i></a></div>
                           <h4 className="title"><a href="/isolation">ISOLATION BEDS</a></h4>
-                          <p>{props.isototal}</p>
+                          <p>Available Beds ={props.isototal}</p>
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-6" data-aos="zoom-in">
                         <div className="box">
                           <div className="icon"><a href="/o2"><i className="fas fa-bed"></i></a></div>
                           <h4 className="title"><a href="/o2">OXYGEN BEDS</a></h4>
-                          <p>{props.o2total}</p>
+                          <p>Available Beds ={props.o2total}</p>
                         </div>
                       </div>
                 </div>

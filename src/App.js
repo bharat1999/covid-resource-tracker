@@ -19,7 +19,7 @@ import {
 dotenv.config()
 
 function App() {
-  var isototal=0,o2total=0,icutotal=0
+  var isototal=0,o2total=0,icutotal=0,color=""
   const [hdata,setHdata] = useState([])
   const [cData,setCdata] =useState([])
   //const [odata,setOdata] = useState([])
@@ -77,10 +77,10 @@ return (
         <Navbar>
           <Navbar.Brand href="/"><img src={logo} width="60" height="60" className="d-inline-block align-top"  alt="Covid Resource Tracker  logo"/></Navbar.Brand>
           <Nav className="mr-auto">
-            <NavLink as={Link} to="/">Home</NavLink>
-            <NavLink as={Link} to="/isolation">Isolation Beds</NavLink>
-            <NavLink as={Link} to="/icu">ICU Beds</NavLink>
-            <NavLink as={Link} to="/o2">Oxygen Beds</NavLink>
+            <NavLink  as={Link} to="/">Home</NavLink>
+            <NavLink  as={Link} to="/isolation">Isolation Beds</NavLink>
+            <NavLink  as={Link} to="/icu">ICU Beds</NavLink>
+            <NavLink  as={Link} to="/o2">Oxygen Beds</NavLink>
           </Nav>
         </Navbar>
         <Switch>
@@ -93,7 +93,15 @@ return (
                 if(!isNaN(parseInt(h.general.available,10))){
                   isototal+=parseInt(h.general.available,10)
                 }
-              return <DataDisplay key={h.name} data={h} total={h.general.occupied} occupied={h.general.occupied} vacant={h.general.available}/>
+                if(parseInt(h.general.available,10)>0)
+                {
+                  color="green"
+                }
+                if(parseInt(h.general.available,10)===0)
+                {
+                  color="red"
+                }
+              return <DataDisplay key={h.name} class={color} data={h} total={h.general.occupied} occupied={h.general.occupied} vacant={h.general.available}/>
               })  
             :<div>Loader</div>}
           </Route>
@@ -105,6 +113,14 @@ return (
               hdata.map((h)=>{
                 if(!isNaN(parseInt(h.icu.available,10))){
                   icutotal+=parseInt(h.icu.available,10)
+                }
+                if(parseInt(h.icu.available,10)>0)
+                {
+                  color="green"
+                }
+                if(parseInt(h.icu.available,10)===0)
+                {
+                  color="red"
                 }
               return <DataDisplay key={h.name} data={h} total={h.icu.occupied} occupied={h.icu.occupied} vacant={h.icu.available}/>
               })  
@@ -118,6 +134,14 @@ return (
               hdata.map((h)=>{
                 if(!isNaN(parseInt(h.o2.available,10))){
                   o2total+=parseInt(h.o2.available,10)
+                }
+                if(parseInt(h.o2.available,10)>0)
+                {
+                  color="green"
+                }
+                if(parseInt(h.o2.available,10)===0)
+                {
+                  color="red"
                 }
               return <DataDisplay key={h.name} data={h} total={h.o2.occupied} occupied={h.o2.occupied} vacant={h.o2.available}/>
               })  
