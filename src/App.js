@@ -33,7 +33,7 @@ function App() {
       })
     }
     fetchBedData()
-    console.log(process.env.API_KEY)
+    console.log(process.env.REACT_APP_API_KEY)
     const fetchCaseData = async()=> {await axios.get("https://corona-virus-world-and-india-data.p.rapidapi.com/api_india", {
       headers: {
         "x-rapidapi-key":process.env.REACT_APP_API_KEY,
