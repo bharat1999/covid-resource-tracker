@@ -1,24 +1,16 @@
-
-
 .data_box{
     width: 60%;
-    height:11rem;
+    height:12rem;
     padding: .5rem 1.5rem;
     margin: 2rem auto ;
-    color: white;
-    /* box-shadow:5px 5px #8fd6e1; */
-    border-radius: 2%;
-    
 }
 .green
 {
-    background: rgb(200,242,205);
-    background: linear-gradient(0deg, rgba(200,242,205,1) 4%, rgba(53,246,79,1) 67%);
+    background-color: lightgreen;
 }
 .red
 {
-    background: rgb(239,236,16);
-background: linear-gradient(180deg, rgba(239,236,16,1) 0%, rgba(239,24,10,1) 100%);  
+    background-color: lightcoral;
 }
 
 .hName
@@ -39,14 +31,14 @@ background: linear-gradient(180deg, rgba(239,236,16,1) 0%, rgba(239,24,10,1) 100
 
 @media screen and (max-width: 1327px) {
     .data_box{
-        height:11rem;
+        height:12rem;
     }
   }
 
   @media screen and (max-width: 992px) {
     .data_box{
         width:90%;
-        height:12rem;
+        height:13rem;
     }
   }  
 
@@ -54,7 +46,7 @@ background: linear-gradient(180deg, rgba(239,236,16,1) 0%, rgba(239,24,10,1) 100
     .data_box{
         width:90%;
         font-size:.6rem;
-        height:14rem;
+        height:15rem;
     }
     .hName{
         font-size:1rem;

@@ -67,7 +67,7 @@ return (
       <div>
         <Navbar>
           <Navbar.Brand href="/"><img src={logo} width="60" height="60" className="d-inline-block align-top"  alt="Covid Resource Tracker  logo"/></Navbar.Brand>
-          <Nav className="mr-auto">
+          <Nav>
             <NavLink  as={Link} to="/">Home</NavLink>
             <NavLink  as={Link} to="/isolation">Isolation Beds</NavLink>
             <NavLink  as={Link} to="/icu">ICU Beds</NavLink>
