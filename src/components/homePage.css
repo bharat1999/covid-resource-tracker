@@ -197,7 +197,7 @@ section {
 }
 
 #cases {
-  background: #f7f7f7;
+  background:lightgray;
   padding: 80px 0 60px 0;
 }
 
@@ -286,10 +286,29 @@ section {
   line-height: 24px;
 }
 
+/* Footer start */
+.bottom-container
+{
+  padding: 1rem 0;
+  background-color: lightgray;
+}
+/* Footer End */
+
+/* Dark Mode css */
 
 .dark .section-title
 {
   color: white;
+}
+
+.dark #facilities .box
+{
+  background:lightgray;
+}
+
+.dark .bottom-container
+{
+  background-color:#161625;
 }
 
 

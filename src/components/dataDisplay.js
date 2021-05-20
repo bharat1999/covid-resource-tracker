@@ -9,7 +9,7 @@ function DataDisplay(props) {
     return(
         <div>
             <Flippy className={`container data_box ${String(props.class)}`} flipOnHover={false} flipOnClick={true} flipDirection="horizontal" ref={ref} >
-                <FrontSide style={{backgroundColor: 'white'}}>
+                <FrontSide style={`${props.isDarkMode ? {backgroundColor:'blue'} : {backgroundColor:'white'}}`}s> 
                     <div className="row">
                         <div className="col col-6 text-start">
                                 <p className="hName">{props.data.name}</p>

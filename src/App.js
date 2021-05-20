@@ -67,7 +67,7 @@ return (
     <div className={`App ${isDarkMode ? `dark` : null}`}>
     <Router>
       <div>
-        <Navbar variant="dark">
+        <Navbar variant={`${isDarkMode ? `dark` : null}`}>
           <Navbar.Brand href="/"><img src={logo} width="60" height="60" className="d-inline-block align-top" alt="Covid Resource Tracker  logo"/></Navbar.Brand>
           <Nav className="mr-auto">
             <NavLink  as={Link} to="/">Home</NavLink>
@@ -105,7 +105,7 @@ return (
                 {
                   color="red"
                 }
-              return <DataDisplay key={h.name} class={color} data={h} total={h.general.total} occupied={h.general.occupied} vacant={h.general.available}/>
+              return <DataDisplay isDarkMode={isDarkMode} key={h.name} class={color} data={h} total={h.general.total} occupied={h.general.occupied} vacant={h.general.available}/>
               })  
             :<div>Loader</div>}
           </Route>
@@ -131,7 +131,7 @@ return (
                 {
                   color="red"
                 }
-              return <DataDisplay key={h.name} data={h} class={color} total={h.icu.total} occupied={h.icu.occupied} vacant={h.icu.available}/>
+              return <DataDisplay isDarkMode={isDarkMode} key={h.name} data={h} class={color} total={h.icu.total} occupied={h.icu.occupied} vacant={h.icu.available}/>
               })  
             :<div>Loader</div>}
           </Route>
