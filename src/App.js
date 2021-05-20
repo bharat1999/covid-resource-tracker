@@ -9,6 +9,7 @@ import OxygenDisplay from './components/oygenDisplay'
 import logo from './assests/img/logo.png'
 import HomePage from './components/homePage'
 import About from './components/about'
+import DarkModeToggle from "react-dark-mode-toggle";
 import {
   BrowserRouter as Router,
   Switch,
@@ -23,6 +24,7 @@ function App() {
   const [hdata,setHdata] = useState([])
   const [cData,setCdata] =useState([])
   const [oData,setOdata] = useState([])
+  const [isDarkMode, setIsDarkMode] = useState(false);
   useEffect(()=>{
     const fetchBedData =  async ()=> {await axios.get("https://api.npoint.io/4d61424b0910b4a2b692")
       .then(function(res){
@@ -62,17 +64,20 @@ useEffect(()=>{
 },[])
 
 return (
-    <div className="App">
+    <div className={`App ${isDarkMode ? `dark` : null}`}>
     <Router>
       <div>
-        <Navbar>
-          <Navbar.Brand href="/"><img src={logo} width="60" height="60" className="d-inline-block align-top"  alt="Covid Resource Tracker  logo"/></Navbar.Brand>
-          <Nav>
+        <Navbar variant="dark">
+          <Navbar.Brand href="/"><img src={logo} width="60" height="60" className="d-inline-block align-top" alt="Covid Resource Tracker  logo"/></Navbar.Brand>
+          <Nav className="mr-auto">
             <NavLink  as={Link} to="/">Home</NavLink>
             <NavLink  as={Link} to="/isolation">Isolation Beds</NavLink>
             <NavLink  as={Link} to="/icu">ICU Beds</NavLink>
             <NavLink  as={Link} to="/o2">Oxygen Beds</NavLink>
             <NavLink  as={Link} to="/about">About Us</NavLink>
+          </Nav>
+          <Nav>
+            <DarkModeToggle onChange={setIsDarkMode} checked={isDarkMode} size={80}/>
           </Nav>
         </Navbar>
         <Switch>

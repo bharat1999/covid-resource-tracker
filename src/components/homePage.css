@@ -287,5 +287,10 @@ section {
 }
 
 
+.dark .section-title
+{
+  color: white;
+}
+
 
 
