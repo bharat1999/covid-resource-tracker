@@ -6,10 +6,12 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 function DataDisplay(props) {
     const ref = useRef();
+
+    // {{backgroundColor:'#1e1e30'}}
     return(
         <div>
             <Flippy className={`container data_box ${String(props.class)}`} flipOnHover={false} flipOnClick={true} flipDirection="horizontal" ref={ref} >
-                <FrontSide style={`${props.isDarkMode ? {backgroundColor:'blue'} : {backgroundColor:'white'}}`}s> 
+                <FrontSide style={{ backgroundColor: 'white'}}>
                     <div className="row">
                         <div className="col col-6 text-start">
                                 <p className="hName">{props.data.name}</p>
