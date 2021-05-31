@@ -89,10 +89,10 @@ function homePage(props){
                 </div>
             </div>
         </section>
-        <section class="bottom-container">
-          <div class="container">
-            <a class="footer-link" target="blank" href="https://github.com/bharat1999/covid-resource-tracker"><i class="fab fa-github fa-2x"></i></a>
-            <p class="copyright">© 2021 Copyright Covid Resource Tracker</p>
+        <section className="bottom-container">
+          <div className="container">
+            <a className="footer-link" target="blank" href="https://github.com/bharat1999/covid-resource-tracker"><i class="fab fa-github fa-2x"></i></a>
+            <p className="copyright">© 2021 Copyright Covid Resource Tracker</p>
           </div>
     </section>  
     </div>   

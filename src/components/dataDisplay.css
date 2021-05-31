@@ -29,6 +29,11 @@
     color: red;
 }
 
+.flippy-front
+{
+    background-color: white;
+}
+
 @media screen and (max-width: 1327px) {
     .data_box{
         height:12rem;

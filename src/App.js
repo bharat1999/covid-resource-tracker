@@ -159,7 +159,7 @@ return (
                 {
                   color="red"
                 }
-              return <OxygenDisplay key={h.name} class={color} data={h} total={h.o2.total} occupied={h.o2.occupied} vacant={h.o2.available} left={oData}/>
+              return <OxygenDisplay isDarkMode={isDarkMode} key={h.name} class={color} data={h} total={h.o2.total} occupied={h.o2.occupied} vacant={h.o2.available} left={oData}/>
               })  
             :<div>Loader</div>}
           </Route>

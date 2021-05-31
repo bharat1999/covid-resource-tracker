@@ -6,12 +6,10 @@ import Flippy, { FrontSide, BackSide } from 'react-flippy';
 
 function DataDisplay(props) {
     const ref = useRef();
-
-    // {{backgroundColor:'#1e1e30'}}
     return(
         <div>
             <Flippy className={`container data_box ${String(props.class)}`} flipOnHover={false} flipOnClick={true} flipDirection="horizontal" ref={ref} >
-                <FrontSide style={{ backgroundColor: 'white'}}>
+                <FrontSide style={{backgroundColor: `${props.isDarkMode ? `#161625` : `white`}`}}>
                     <div className="row">
                         <div className="col col-6 text-start">
                                 <p className="hName">{props.data.name}</p>
@@ -44,7 +42,7 @@ function DataDisplay(props) {
                     </div>
                     <button className="btn btn-primary">More Info</button>    
                 </FrontSide>
-                <BackSide style={{ backgroundColor: 'white'}}>
+                <BackSide style={{backgroundColor: `${props.isDarkMode ? `#161625` : `white`}`}}>
                     <div>
                         <p>Add: {props.data.location.formattedAddress}</p>
                         <p>Phone No: {props.data.phoneNumber[0]}</p> 
